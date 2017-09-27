@@ -1,0 +1,452 @@
+GNU Cim NEWS
+
+Copyright (C) 1997-99 Sverre Hvammen Johansen
+See the end for copying conditions.
+
+Version 4:
+
+* Version 4 is experimental. If you want a stable compiler, please use
+  version 3 instead. We are planing support for some more optimizations.
+
+Version 3:
+
+* The compiler may use a lot of virtual memory. If that is a problem
+  for you, please split your program into separate compiled modules
+  or use version 2 of cim instead.
+
+* Cim uses libtool to build static and shared libraries.  Se README for
+  details.
+
+Version 2:
+
+* Cim uses libtool to build static and shared libraries.  Se README for
+  details.
+
+
+Version 3.36
+
+* Bugfix: New in combination with inspect did not work correctly.
+
+
+Version 3.35
+
+* Minor changes. Corrected a bug that remained from version 3.34.
+
+
+Version 3.34
+
+* Fixed a bug which caused option -a to not work correctly. NULL from
+  externernal C text procedures are now acepted. Replaced bzery by memset
+  and bcopy by memmove. directive %INSERT is now accepted as a synonym
+  for %INCLUDE. '%\r' is now accepted as a directive line comment.
+  Doing some preparation for Mingw32. Please not upgrade now. More bugs
+  will be corrected later.
+
+
+Version 3.33
+
+* Minor changes so that the C-compiler will compile with TenDRA C.
+  The RTS and generated C-code will not compile with TenDRA C, without
+  major changes. I belive that the TenDRA C compiler is broken.
+
+
+Version 3.32
+
+* Broken configure script: Because of libtool upgrade some configure tests
+  needed corrections.
+
+
+Version 3.31
+
+* Fixed a bug which produced incorrect code for some actual
+  parameters to simple parameters transmitted by name.
+
+* Upgraded to libtool-1.3.3.
+
+
+Version: 3.30
+
+* Released as a GNU program
+
+* Fixed a bug which produced incorrect code for dotted actual
+  parameters to arrays transmitted by value.
+  
+
+Version: 3.29
+
+* Fixed a bug which caused segmentation fault when running programs
+  containing gotos to non-local virtual labels.
+
+
+Version: 3.28
+
+* Fixed a bug which caused segmentation fault when compiling array
+  declarations in some contexts.
+
+
+Version: 3.27
+
+* A really seriouse bug-fix, please upgrade: Transmission of
+  parameters to prefixed blocks was missing i previouse versions.
+
+
+Version: 3.26
+
+* Corrected a tiny bug in the code-generator.
+
+
+Version: 3.25
+
+* Corrected a bug which may report "(null) is declared twice" for
+  external compiled modules.
+
+* Corrected a bug in genpar.c, a missing blank which caused C-compilation
+  of generated code to fail. Same bug corrected in version 2.11.
+
+* Corrected a bug which reported real-constant ** negative-integer-constant 
+  as an error.
+
+
+Version 3.24
+
+* Corrected a bug concerning programs that contained an inner
+  inside a while- or if-statement.
+
+* Updated cim.spec.in so that cim is buildroot-capable.
+
+
+Version 3.23
+
+* Version 3 is not experimental anymore. Please use version 3 instead of 
+  version 2 and report bugs related to version 3 to cim-bug@ifi.uio.no
+
+* Updated cim.spec.in
+
+
+Version 3.22
+
+* Corrected an error which caused constant computation over ** to fail
+  for right arguments of type real.
+
+
+Version 3.21
+
+* Corrected an error which caused execution external modeles which
+  contained references to sysout or sysin (either directly or 
+  indirectly) to fail.
+
+
+Version 3.20
+
+* Version 3.19 solved the problem with real numbers on big-endian 
+  arcitectures.
+
+* All transformations are done before the tree are handed over to the
+  code-generator.
+
+* Part of code-generation for for-statements are separated out in
+  an arcitecture independent part.
+
+
+Version 3.19
+
+* Just a test to try to solve a problem with real numbers.
+
+Version 3.18
+
+* Cim 3.16 and 3.17 was buildt wrong, needed to rerun autoheader.
+  I had a wrongly configured autoheader laying around that I was not
+  able to get rid of. Lets try one more time.
+
+
+Version 3.16
+
+* "Fagernes 316": My parents home phone number before 1975 (Berit and
+  Thormod __JOHAN(SEN)__). John 3:16 For God so loved the world, that
+  he gave his only begotten Son, that whosoever believeth in him should
+  not perish, but have everlasting life.
+
+* Correcting a bug which often made execution fail after garbage collection.
+
+* Corrected a bug in lib/Makefile.am, which caused a rebuild of 
+  {simset,simulation}.{atr,c} even if they where up to date.
+
+* The simulatool-test passed. Please use version 1.3 of simulatool
+
+* Updated the CURRENT interface number for libcim.lo.
+
+* Some other minor changes
+
+
+Version 3.15
+
+* Restructured the code, generation for expressions. Gencall and friends
+  have been made arcitecture independent. Gencall splits the expression
+  up into several simpler expressions which are handed over to genexp
+  for code-generation.
+
+* Changed the order of subdirectories in the toplevel Makefile.am.
+
+
+Version 3.14
+
+ * Added removeBlock () which allows removal of BLOCK objects.
+
+ * Added an atribute when to struct DECL
+
+ * Corrected a bug in dekl.c which reported blokk is declared twice
+   for prefixed blocks.
+
+ * Implemented removal of unused block objects. Required a different
+   scheme for reservation of labels.
+
+ * Corrected a bug which for some external modules reported 
+   __blokk0' undeclared
+
+ * Renamed gen.c to genlabel.c
+
+
+Version 3.13
+
+ * Corrected some bugs that remained from version 2, conserning
+   user defined subclasses of class FILE and co. The structs for
+   these objects are now generated by the compiler instead of
+
+ * Corrected some bugs that remained from version 2, conserning
+   transmision of array/label/procedure parameters to formal or
+   virtual procedures.
+
+ * Reorganized genstruct.c. All produced code are now written to
+   one single file (.c).
+
+ * All initialization of prototypes are now done by the compiler.
+
+
+Version 3.12
+
+ * Corrected a few bugs: Simula test-batch passed
+
+
+Version 3.11
+
+ * Corrected a bug for the for-statement. The following did not work:
+
+     ... INTEGER i; FOR i:= 1 STEP 1 UNTIL 10.0 do ...
+
+ * Added cim.spec to the distribution so that binary and source
+   packages can be buildt using `rpm -ta cim-3.??.tar.gz'
+
+ * Restructured gen.c. Most of the code have been moved to sentgen.c.
+
+ * Added option --enable-dump to the configure script.
+
+
+Version 3.10
+
+ * Errors reported from the parser missed a newline.
+
+
+Version 3.9
+
+* The bugfix for ... was not done corectly in version 3.8.
+
+* Corrected the yacc grammar so that ... specifications
+  are parsed corectly.
+
+* Corrected extspec.c so that ... specifications are written
+  corectly in the produced .mif file.
+
+* By default the .shl file is removed after compilation.
+
+
+Version 3.8
+
+* Corrected some bugs that was trigged on sparc.
+
+* Corrected a bug conserning use of ... in external declared modules.
+
+* Done some cleanups in feil.[ch], and renamed it to error.[ch]
+
+
+Version 3.6
+
+* Upgraded to automake-1.3
+
+
+Version 3.5
+
+* Added use of OBSTACK to handling of %ifdef and co, and corrected a bug
+  which was present in the old code.
+
+* Added a new module mapline.[ch] which uses OBSTACK. It handles the
+  mapping of line-numbers to real line numbers and real source files.
+
+* The compiler should produce exactly the same output as cim-2.8,
+  please test this out. 
+
+* Many of the logical limitations in the compiler have been removed 
+  as we now use OBSTACK
+
+* Added use of OBSTACK to the rest of the modeles for the compiler-driver.
+
+* Done some cleanups in dekl.c, filelist.c, extspec.c name.c and lex.c
+
+
+Version 3.4
+
+* Added obstack.[ch] to the distribution
+
+* Done some cleanups in dekl.[ch]: Eliminated use of arrays.
+  Added use of OBSTACK.
+
+Version 3.3
+
+* Done some prearrangements for implementation of an optimazing compiler
+
+* Added use of OBSTACK. At the current moment OBSTACK is not included in
+the distribution. This will be added some time in the future.
+
+* Restructured sjekker.c. The files which replaces sjekker.[ch] are 
+listed below.
+
+* mellbuilder.c is a replacement for the .m file. It uses OBSTACK.
+
+* sentbuilder.c builds a tree for all the sentences/blocks read from
+mellbuilder. It uses OBSTACK.
+
+* expbuilder.c builds a tree for each expression read from mellbuilder.
+It uses OBSTACK.
+
+* expchecker.c checks the expressions for semantic errors. A few 
+transformations are also done.
+
+* sentchecker.c check the sentences/blocks and interacts with decl.c
+to set current block which are stored in each SENT object so that
+current block is available for checking of expressions and code generation.
+
+* sentgen.c is the new interface to the code generator. In future
+releases it is intended to include part of gen.c
+
+* Some changes in dekl.c, gen.c, genexp.c, genpar.c and
+genstruct.c for getting the new scheme to work.
+
+
+Version 2.10
+
+* Once more: Hopefully corrected install bug for cygwin32.
+
+Version 2.9
+
+* Corrected bug in procedure Poisson
+
+* Hopefully corrected install bug for cygwin32.
+
+Version 2.7
+
+* Included stdio.h in navn.c so that it will compile with gcc under
+  sparc-sun-sunos4.1.3_U1
+
+* Correctet a tiny bug in cimcomp.c
+
+Version 2.6
+
+* Added this file to the distribution.
+
+* Updated README with compilation instructions
+
+* Modified the Makefile in the lib directory so that it should be
+portable across different make-implementations.
+
+* Concerning exec'ing the shl-script: Setting arg0 equal the name of
+the shl-script and prepend the shl-name with ./ so that the correct
+script will be started. This is necessary to get it to work under
+cygwin32.
+
+Version 2.5
+
+* Install the cim-library in $(libdir) instead of $(pkglibdir)
+so that the correct library will be found.
+
+Version 2.4
+
+* simset.c, simset.h, simset.atr, simulation.c, simulation.h, and
+simulation.atr will not be deleted by make (dist)clean. simset.shl,
+simulation.shl, simset.mif, and simulation.mif will be deleted by the
+clean target.
+
+* Added a newline at the end of the generated C-code so that some
+C-compilers will not complain.
+
+* Removed some unnecessary code in the beginning of the generated code
+so that some C-compilers would not complain about unreachable code.
+
+Version 2.3
+
+* make (dist)clean will not delete the library of atr-files.
+Will only be deleted for the target maintainer-clean.
+
+* cim --version now return 0 instead of 1.
+
+Version 2.2
+
+* Introduced 8 byte alignment, so that it should work under most modern
+architectures
+
+* The generated C-file include references to line-numbers in the
+original Simula-file, so that a C-debugger will get references back to
+the Simula-source file instead of the C-file.
+
+Version 2.1
+
+* A few bug-fixes that remained from 1.93
+
+* The compiler-driver have been rewritten, so that the C-compiler and
+the linker is started from a script that is exec'd so that the
+resources that is allocated by Cim is freed before these parts are
+started.
+
+* The implementation of simula-libraries have changed. .o and .atr
+files are now always located in separate ar-archives. The archive of .atr
+files is included in the distribution so that it also will work on
+systems that is not able to build this archive.
+
+* A few options to the compiler have changes, and new ones have been
+introduced. Se the documentation for details.
+
+* Makefile.in's are generated by automake-1.12.
+
+* Both static and shared libraries are now supported by use of
+libtool-1.0.
+
+* Djgpp, VMS and some older unix-variants are not longer supported
+correctly. We suggest that you use GNU-WIN32/CYGWIN32 instead of Djgpp
+(URL: http://www.cygnus.com/misc/gnu-win32/).
+
+* For external modules a human-readable file which gives the signature
+of the module is generated (.mif). This file can be used for documentation.
+
+* New syntax for specification of parameters have been introduced.
+This syntax is not documented, except in parser.y. The new syntax 
+is used in the .mif-file. Try to compile an external module.
+
+Version 1.93
+ 
+* Version 1 of cim if frozen to cim-1.93.tar.gz and is the only
+  version with support for Djgpp, VMS and some older Unix-variants.
+
+* Changes not recorded.
+
+----------------------------------------------------------------------
+Copyright information:
+ 
+Copyright (C) 1997, Sverre Hvammen Johansen
+ 
+   Permission is granted to anyone to make or distribute verbatim copies
+   of this document as received, in any medium, provided that the
+   copyright notice and this permission notice are preserved,
+   thus giving the recipient permission to redistribute in turn.
+ 
+   Permission is granted to distribute modified versions
+   of this document, or of portions of it,
+   under the above conditions, provided also that they
+   carry prominent notices stating who last changed them.
