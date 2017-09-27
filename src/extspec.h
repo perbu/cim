@@ -28,7 +28,7 @@ void gettimestamp ();
 void initExtspec ();
 extern char *directive_timestamp;
 extern char *timestamp;
-extern lesinn_external_spec ();
+extern void lesinn_external_spec ();
 extern more_modules ();
 extern struct stamp *first_stamp;
 extern skrivut_external_spec ();

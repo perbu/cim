@@ -189,9 +189,9 @@ struct BLOCK
 #define CCCPROC      8		/* Ekstern C-prosedyre */
 
 
-extern beginBlock ();
-extern endBlock ();
-extern regDecl ();
+extern void beginBlock ();
+extern void endBlock ();
+extern void regDecl ();
 extern regInner ();
 extern struct DECL *newDecl ();
 extern struct BLOCK *firstclass ();

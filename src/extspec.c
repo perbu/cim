@@ -476,7 +476,7 @@ found:
 /******************************************************************************
                                                         LESINN_EXTERNAL_SPEC */
 
-lesinn_external_spec (ident, filename, kind)
+void lesinn_external_spec (ident, filename, kind)
      char *ident;
      char *filename;
      char kind;
@@ -565,7 +565,7 @@ static write_text_mif (f, s) FILE *f; unsigned char *s;
 /******************************************************************************
                                                               WRITE_DECL_MIF */
 
-static write_decl_mif (f, rd, level)
+static void write_decl_mif (f, rd, level)
        FILE *f; struct DECL *rd; int level;
 {
   if (rd->kind == KBLOKK || rd->kind == KPRBLK || rd->kind == KFOR || 

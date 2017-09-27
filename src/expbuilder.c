@@ -249,7 +249,7 @@ ebuild ()
 #endif
 	      re= elook()->up= makeexp(token, NULL, NULL);
 	      re->up= re;
-	      return;
+	      return(0); // perbu, make it compile.
 	    }
 	  /* VANELIG BEHANDLING */
 	  {

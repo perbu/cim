@@ -243,14 +243,14 @@ static argumenterror (melding, re)
 {
   int i = 1;
   if (TYPE == TERROR)
-    return;
+    return(0);
   TYPE = TERROR;
   if (UPTYPE == TERROR || (LEFT != NULL && LEFTTYPE == TERROR))
-    return;
+    return(0);
   for (re = UP; TOKEN == MARGUMENTSEP; re = UP)
     i++;
   if (re->type == TERROR)
-    return;
+    return(0);
   serror (melding, re->value.ident, i);
 
 }

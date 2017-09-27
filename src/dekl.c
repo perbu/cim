@@ -526,7 +526,7 @@ subordinate (rda, rdb)
 
 /* Kalles fra  syntakssjekkeren hver gang en ny blokk entres */
 
-beginBlock (kind)
+void beginBlock (kind)
      char kind;
 {
   static int cblno = STARTBLNO;
@@ -654,7 +654,7 @@ beginBlock (kind)
 /* Kalles  fra  syntakssjekkeren hver gang en blokk terminerer */
 
 /*VARARGS0 */
-endBlock (rtname, codeclass)
+void endBlock (rtname, codeclass)
      char *rtname;
      char codeclass;
 {
@@ -692,7 +692,7 @@ endBlock (rtname, codeclass)
 /* RegDecl kalles fra syntakssjekkeren
  * hver gang  vi leser  en deklarasjon */
 
-regDecl (ident, type, kind, categ)
+void regDecl (ident, type, kind, categ)
      char *ident, type, kind, categ;
 {
   struct DECL *pd,
@@ -1263,7 +1263,7 @@ setqualprefchain (rd, param)
  * Prefikskjeden og kvalifikasjoner settes ved kall på setqualprefchain 
  * den sjekker også konsistensen for type kind og categ */
 
-static sjekkdekl (rb)
+void static sjekkdekl (rb)
      struct BLOCK *rb;
 {
   struct DECL *rd = NULL,

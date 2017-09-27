@@ -258,7 +258,7 @@ static blockmainstructure (rb, output_refs)
 /******************************************************************************
                                                         BLOCKSTRUCTURE       */
 
-static blockstructure (rb)
+static void blockstructure (rb)
      struct BLOCK *rb;
 {
   int i;

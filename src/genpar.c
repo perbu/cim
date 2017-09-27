@@ -1172,7 +1172,7 @@ genpredefproccall (re)
       genmodulemark(NULL);
       fprintf (ccode, ");");
       exitlabel (i);	/* Reentrings punkt */
-      return;
+      return(0);  // perbu: make it compile.
       break;
     case CCEXIT:		/* TERMINATE_PROGRAM */
       if (separat_comp)
@@ -1182,7 +1182,7 @@ genpredefproccall (re)
       else
 	gotolabel (STOPLABEL);
       not_reached = TRUE;
-      return;
+      return(0); // make it compile
       break;
     case CCTEXTDANGER:
     case CCTEXT:

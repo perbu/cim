@@ -196,7 +196,7 @@ genmodulemark(maintimestamp) char *maintimestamp;
 /******************************************************************************
                                                                 GENVALUE     */
 
-genvalue (re)
+void genvalue (re)
      struct EXP *re;
 {
   struct EXP *rex;

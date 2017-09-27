@@ -42,7 +42,7 @@ int anterror;
 
 /******************************************************************************
                                                                   STARTERROR */
-static starterror (line)
+void static starterror (line)
      long line;
 {
   anterror++;
@@ -57,7 +57,7 @@ static starterror (line)
 
 /* Feil som oppdages av LEX */
 
-lerror (errcode)
+void lerror (errcode)
      int errcode;
 {
   if (option_nowarning && (errcode == 8 || errcode == 32))
@@ -180,7 +180,7 @@ lerror (errcode)
 /* Feil som oppdages av YACC */
 
 /*VARARGS1 */
-yerror (errcode, txt)
+void yerror (errcode, txt)
      int errcode;
      char *txt;
 {
@@ -250,7 +250,7 @@ yerror (errcode, txt)
 /* Feil som oppdages av DECL PASS 1 */
 
 /*VARARGS1 */
-d1error (errcode, name)
+void d1error (errcode, name)
      int errcode;
      char *name;
 {
@@ -293,7 +293,7 @@ d1error (errcode, name)
 /* Feil som oppdages av DECL PASS 2 */
 
 /*VARARGS1 */
-d2error (errcode, rd1, rd2)
+void d2error (errcode, rd1, rd2)
      int errcode;
      struct DECL *rd1,
       *rd2;
@@ -460,7 +460,7 @@ textnumber (i)
 /* Feil som oppdages av SJEKKEREN */
 
 /*VARARGS1 */
-serror (errcode, name, ant)
+void serror (errcode, name, ant)
      int errcode,
        ant;
      char *name;
@@ -651,7 +651,7 @@ serror (errcode, name, ant)
 /* Feil som oppdages av kodeGENERATOREN */
 
 /*VARARGS1 */
-gerror (errcode, name)
+void gerror (errcode, name)
      int errcode;
      char *name;
 {
@@ -684,7 +684,7 @@ gerror (errcode, name)
 /* Feil som oppdages under innlesing av eksterne moduler */
 
 /*VARARGS1 */
-merror (errcode, name)
+void merror (errcode, name)
      int errcode;
      char *name;
 {

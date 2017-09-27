@@ -805,7 +805,7 @@ static scanDirline ()
 		{
 		  //fclose (includeFile ());
 		  end_of_file = 2;
-		  return;
+		  return(0); // perbu, make it compile.
 		}
 	      else if (!strcmp (yytext, "ELSE")) scanIfdef ();
 	      else if (!strcmp (yytext, "ELSEDEF")) scanIfdef ();
@@ -896,7 +896,7 @@ static scanDirline ()
 	      break;
 	    case 'N':
 	      if (!strcmp (yytext, "NOCOMMENT"))
-		return;
+		return(0); // perbu, make it compile.
 	      else if (!strcmp (yytext, "NAMEASVAR"))
 		{
 		  flag = &nameasvar;

@@ -68,7 +68,7 @@ extern gentype ();
 extern genmodulemark();
 extern gen_adr_prot();
 
-extern genvalue();
+extern void genvalue();
 
 /* genpar.c */
 extern genprocparam ();
